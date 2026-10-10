@@ -97,6 +97,8 @@ a.thumb:hover img { opacity: 0.8; }
 .bio a { text-decoration: none; }
 .bio a:hover { text-decoration: underline; }
 .bio .social { margin-top: 1rem; }
+.brands { margin-top: 2.5rem; font-size: 0.9rem; }
+.brands-label { text-transform: uppercase; }
 
 /* ---- Footer ---- */
 .site-footer {
