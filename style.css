@@ -69,6 +69,7 @@ img { display: block; max-width: 100%; }
 }
 .row.wide { grid-template-columns: repeat(3, 1fr); }  /* horizontal videos */
 .row.tall { grid-template-columns: repeat(4, 1fr); }  /* vertical videos */
+.row.tall.five { grid-template-columns: repeat(5, 1fr); }  /* a vertical row with five */
 
 .thumb { display: block; overflow: hidden; margin-bottom: 1.2rem; }
 .thumb img {
@@ -115,7 +116,7 @@ a.thumb:hover img { opacity: 0.8; }
   .main-nav { margin-left: 0; order: 3; width: 100%; }
 
   .row.wide { grid-template-columns: 1fr; }
-  .row.tall { grid-template-columns: repeat(2, 1fr); }
+  .row.tall, .row.tall.five { grid-template-columns: repeat(2, 1fr); }
 
   .about { flex-direction: column; gap: 1.5rem; padding: 1rem var(--side-padding) 3rem; }
   .portrait { width: 60vw; }
