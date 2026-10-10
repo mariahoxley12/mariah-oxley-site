@@ -1,0 +1,123 @@
+/* =========================================================
+   style.css — controls how the whole site LOOKS.
+   (index.html and about.html control what the site SAYS.)
+   ========================================================= */
+
+/* ---- The font (the file lives in the fonts folder) ---- */
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("fonts/source-code-pro.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+/* ---- Settings you might want to tweak ---- */
+:root {
+  --text-color: #000;
+  --background: #fff;
+  --font: "Source Code Pro", monospace;
+  --side-padding: 3vw;   /* space on the left/right edges of the page */
+  --gap: 11px;           /* space between thumbnails */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text-color);
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ---- Header ---- */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem var(--side-padding);
+}
+.logo img { width: 310px; height: auto; }
+.main-nav {
+  display: flex;
+  gap: 1rem;
+  margin-left: 6vw;
+  font-size: 1rem;
+}
+.main-nav a { text-decoration: none; padding-bottom: 2px; }
+.main-nav a.current,
+.main-nav a:hover { border-bottom: 1px solid currentColor; }
+
+.social { display: flex; gap: 1rem; }
+.site-header .social { margin-left: auto; }
+.social a { display: block; width: 20px; height: 20px; }
+.social a:hover { opacity: 0.6; }
+.social svg { width: 100%; height: 100%; }
+
+/* ---- Video grid ---- */
+.work { padding: 2rem var(--side-padding) 3rem; }
+
+.row {
+  display: grid;
+  gap: var(--gap);
+  margin-bottom: 1.5rem;
+}
+.row.wide { grid-template-columns: repeat(3, 1fr); }  /* horizontal videos */
+.row.tall { grid-template-columns: repeat(4, 1fr); }  /* vertical videos */
+
+.thumb { display: block; overflow: hidden; margin-bottom: 1.2rem; }
+.thumb img {
+  width: 100%;
+  object-fit: cover;          /* crop to fill the box instead of squishing */
+  transition: opacity 0.2s;
+}
+.row.wide .thumb img { aspect-ratio: 16 / 9; }
+.row.tall .thumb img { aspect-ratio: 9 / 14; }
+a.thumb:hover img { opacity: 0.8; }
+
+.card p { margin: 0 0 0.6rem; }
+
+/* ---- About page ---- */
+.about {
+  display: flex;
+  align-items: flex-start;
+  gap: 10vw;
+  padding: 2rem 11vw 6rem;
+  font-size: 1rem;
+}
+.portrait { width: 23vw; min-width: 200px; height: auto; }
+.bio { max-width: 27rem; padding-top: 1.5rem; }
+.bio p { margin: 0 0 0.6rem; }
+.bio a { text-decoration: none; }
+.bio a:hover { text-decoration: underline; }
+.bio .social { margin-top: 1rem; }
+
+/* ---- Footer ---- */
+.site-footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem var(--side-padding) 3rem;
+  font-size: 1rem;
+}
+
+/* ---- Phones and small screens ---- */
+@media (max-width: 700px) {
+  :root { --side-padding: 5vw; }
+
+  .site-header { flex-wrap: wrap; gap: 1rem; }
+  .logo img { width: 230px; }
+  .main-nav { margin-left: 0; order: 3; width: 100%; }
+
+  .row.wide { grid-template-columns: 1fr; }
+  .row.tall { grid-template-columns: repeat(2, 1fr); }
+
+  .about { flex-direction: column; gap: 1.5rem; padding: 1rem var(--side-padding) 3rem; }
+  .portrait { width: 60vw; }
+  .bio { padding-top: 0; }
+}
